@@ -1,3 +1,4 @@
+import os
 import unittest,tempfile
 from pathlib import Path
 from unittest.mock import patch
@@ -32,3 +33,18 @@ class Tests(unittest.TestCase):
    if not g.ball:break
   self.assertTrue(all(math.isfinite(v) for v in (g.x,g.y,g.vx,g.vy)))
 if __name__=='__main__':unittest.main()
+
+
+class I18nTests(unittest.TestCase):
+    def test_table_spanish(self):
+        import flipspire
+        S = dict(flipspire.DEFAULT_STRINGS)
+        S["LAUNCH"] = "Arriba lanza la bola {n} de 3"
+        tb = flipspire.Table(S)
+        self.assertEqual(tb.message, "Arriba lanza la bola 1 de 3")
+    def test_game_over_format(self):
+        import flipspire
+        tb = flipspire.Table()
+        tb.used[0] = 3; tb.scores[0] = 99
+        tb.drain()
+        self.assertIn("99", tb.message)
