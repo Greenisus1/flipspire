@@ -1,3 +1,8 @@
+## Languages
+
+Works with the Translations app: pick a language there and the table text, messages and help lines switch to it (English, Espanol, Francais, Deutsch). With no Translations app installed it runs in English as usual.
+
+## Run
 # Flipspire
 
 Original fullscreen solo pinball for Linux terminals and SSH. Up arrow launches the ball. Left and right arrows activate the corresponding flippers. Three balls per game, three bumpers, four top targets, gravity, sloping guide rails and local best scores. No network, accounts, API keys, ads, paid unlocks or desktop required.
